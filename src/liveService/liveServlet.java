@@ -30,7 +30,7 @@ public class liveServlet extends HttpServlet {
 		List<live> liveList = liveDAO.list();
 //		直播间信息转换成json字符串
 		String jsonString = JSON.toJSONString(liveList);
-		System.out.println(jsonString);
+//		System.out.println(jsonString);
 //		设置输出流编码格式并输出
 		resp.setCharacterEncoding("utf-8");
 		resp.getWriter().println(jsonString);

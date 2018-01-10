@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import medialive.DAO.impl.playbackDAOImpl;
+
 public class playbackServlet extends HttpServlet {
 
 	/**
@@ -15,9 +17,11 @@ public class playbackServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void service(HttpServletRequest arg0, HttpServletResponse arg1) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("’‚¿Ô «playbackServlet");
+		System.out.println("playbackdoGET");
+		playbackDAOImpl playbackDAO = new playbackDAOImpl();
+		playbackDAO.list();
 	}
 	
 	

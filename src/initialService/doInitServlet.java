@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import medialive.DAO.impl.liveDAOImpl;
+import medialive.DAO.impl.playbackDAOImpl;
 
 public class doInitServlet extends HttpServlet {
 
@@ -22,7 +23,10 @@ public class doInitServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		System.out.println("≥ı ºªØinitServlet");
 		liveDAOImpl liveDAO = new liveDAOImpl();
+		liveDAO.init();
 		liveDAO.clear();
+		playbackDAOImpl playbackDAO = new playbackDAOImpl();
+		playbackDAO.init();
 	}
 
 
