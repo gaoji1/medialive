@@ -3,9 +3,8 @@
  */
 var fun = function() {
 	var url = "/medialive/live";
-	var param = {name:"123", age:"12"};
-	$.get(url,param,function(data){
-		alert(1);
+	$.get(url,function(data){
+		console.log(data);
 	});
 }
 $(fun);
