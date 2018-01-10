@@ -12,7 +12,7 @@ var func = function(){
 			var stream = $("<a>"+json[x].streamName+"</a>");
 			stream.attr("href","./playbackPlay.html?id="+json[x].id);
 			streamtd.append(stream);
-			var date = $("<td>"+json[x].liveDate+"</td>");
+			var date = $("<td>"+new Date(json[x].liveDate).toLocaleDateString()+"</td>");
 			row.append(id).append(streamtd).append(date);
 			$("#playbackTable").append(row);
 		}
