@@ -4,24 +4,44 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	version="3.1" metadata-complete="false">
+	<!-- 初始化servlet' -->
 	<servlet>
 		<servlet-name>initServlet</servlet-name>
 		<servlet-class>initialService.doInitServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
-		
+
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>initServlet</servlet-name>
 		<url-pattern>/init</url-pattern>
 	</servlet-mapping>
-	
+	<!-- 注册servlet -->
 	<servlet>
-	<servlet-name>signUpServlet</servlet-name>
-	<servlet-class>signUpService.signUpServlet</servlet-class>
+		<servlet-name>signUpServlet</servlet-name>
+		<servlet-class>signUpService.signUpServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-	<servlet-name>signUpServlet</servlet-name>
-	<url-pattern>/signUp</url-pattern>
+		<servlet-name>signUpServlet</servlet-name>
+		<url-pattern>/signUp</url-pattern>
+	</servlet-mapping>
+	<!-- 回放servlet -->
+	<servlet>
+		<servlet-name>playbackServlet</servlet-name>
+		<servlet-class>playbackService.playbackServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>playbackServlet</servlet-name>
+		<url-pattern>/playback</url-pattern>
+	</servlet-mapping>
+
+	<!-- 直播servlet -->
+	<servlet>
+		<servlet-name>liveServlet</servlet-name>
+		<servlet-class>liveService.liveServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>liveServlet</servlet-name>
+		<url-pattern>/live</url-pattern>
 	</servlet-mapping>
 
 
