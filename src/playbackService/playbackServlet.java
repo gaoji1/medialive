@@ -1,13 +1,17 @@
 package playbackService;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.alibaba.fastjson.JSON;
+
 import medialive.DAO.impl.playbackDAOImpl;
+import medialive.domain.playback;
 
 public class playbackServlet extends HttpServlet {
 
@@ -21,7 +25,10 @@ public class playbackServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		System.out.println("playbackdoGET");
 		playbackDAOImpl playbackDAO = new playbackDAOImpl();
-		playbackDAO.list();
+		List<playback> playbackList = playbackDAO.list();
+		String jsonString = JSON.toJSONString(playbackList);
+		resp.setCharacterEncoding("utf-8");
+		resp.getWriter().println(jsonString);
 	}
 	
 	
