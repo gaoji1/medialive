@@ -1,11 +1,16 @@
 /**
  * 
  */
-var func = function(){
-	console.log($(".signUpinput"))
 
+var func = function() {
+	var url = "/medialive/signUp"
+	var param = $(".signUpinput");
+	console.log("roomName:"+param[0].value+","+"streamName:"+param[1].value)
+	$.post(url,{ roomName: param[0].value, streamName: param[1].value },
+			function(data){
+		console.log(data);
+	});
 
-	
 }
 
-$("#signUpButton").on("click",func);
+$("#signUpButton").on("click", func);
