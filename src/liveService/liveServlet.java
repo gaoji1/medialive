@@ -20,23 +20,32 @@ public class liveServlet extends HttpServlet {
 	 */
 	private static final long serialVersionUID = 1L;
 
-
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		System.out.println("doGET");
-//		从数据库中拉取直播间信息
+		// 从数据库中拉取直播间信息
 		liveDAOImpl liveDAO = new liveDAOImpl();
 		List<live> liveList = liveDAO.list();
-//		直播间信息转换成json字符串
+		// 直播间信息转换成json字符串
 		String jsonString = JSON.toJSONString(liveList);
-//		System.out.println(jsonString);
-//		设置输出流编码格式并输出
+		// System.out.println(jsonString);
+		// 设置输出流编码格式并输出
 		resp.setCharacterEncoding("utf-8");
 		resp.getWriter().println(jsonString);
-		
+
 	}
-	
-	
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String id = req.getParameter("id");
+		resp.setCharacterEncoding("utf-8");
+		liveDAOImpl liveDAO = new liveDAOImpl();
+		live liveDemo = liveDAO.getByid(new Long(id));
+
+		resp.getWriter().println(JSON.toJSONString(liveDemo));
+
+	}
 
 }
