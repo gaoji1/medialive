@@ -30,6 +30,17 @@ public class playbackServlet extends HttpServlet {
 		resp.setCharacterEncoding("utf-8");
 		resp.getWriter().println(jsonString);
 	}
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		System.out.println("playbackdoPOST");
+		resp.setCharacterEncoding("utf-8");
+		String id = req.getParameter("id");
+		playbackDAOImpl playbackDAO = new playbackDAOImpl();
+		playback pbDemo = playbackDAO.getByid(new Long(id));
+		resp.getWriter().println(JSON.toJSONString(pbDemo));
+		
+	}
 	
 	
 
