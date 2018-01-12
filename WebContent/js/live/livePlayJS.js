@@ -2,20 +2,6 @@
  * 负责调用视频播放器API
  * 
  */
-/**
- * 极酷播放器视频播放参数
- * 
- * @param {Object}
- *            width 视频宽度
- * @param {Object}
- *            height 视频高度
- * @param {Object}
- *            imgUrl 图片地址
- * @param {Object}
- *            videoUrl 视频文件地址
- * @param {Object}
- *            divID 显示的divID
- */
 
 function getAddressURLParam(paramName) {
 	// 构造一个含有目标参数的正则表达式的对象
@@ -39,7 +25,7 @@ var playerFunc = function(red5URL, streamName) {
 		host += a[e];
 	}
 //	设置播放器
-	var so = new SWFObject("player.swf", "CuSunPlayer", "700", "410", "9",
+	var so = new SWFObject("player.swf", "myCuPlayer", "700", "410", "9",
 			"#000000");
 	so.addParam("allowfullscreen", "true");
 	so.addParam("allowscriptaccess", "always");
